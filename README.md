@@ -1,11 +1,11 @@
 #### Description:
 Created a fully functional 2048 puzzle game using HTML, CSS, and JavaScript, featuring a grid where tiles merge when two with thesame number touch.
 Key Features:
-• Developed the core game logic, including tile merging, movement detection, and random tile generation.
-• Integrated score tracking and a "Game Over" detection mechanism.
-• Optimized for both desktop and mobile devices with a responsive layout.
-• Used event listeners for keyboard and swipe-based input to control tile movement.
-• Ensured smooth animations and user-friendly gameplay.
+- Developed the core game logic, including tile merging, movement detection, and random tile generation.
+- Integrated score tracking and a "Game Over" detection mechanism.
+- Optimized for both desktop and mobile devices with a responsive layout.
+- Used event listeners for keyboard and swipe-based input to control tile movement.
+- Ensured smooth animations and user-friendly gameplay.
 
 
 #### Technology Used:
