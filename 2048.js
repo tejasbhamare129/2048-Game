@@ -47,30 +47,54 @@ function updateTile(tile, num) {
             tile.classList.add("x"+num.toString());
         } else {
             tile.classList.add("x8192");
-        }                
+        }
     }
 }
 
+function checkGameOver() {
+    
+    if (hasEmptyTile()) return false;
+
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns - 1; c++) {
+            if (board[r][c] == board[r][c + 1]) return false;
+        }
+    }
+
+    for (let c = 0; c < columns; c++) {
+        for (let r = 0; r < rows - 1; r++) {
+            if (board[r][c] == board[r + 1][c]) return false;
+        }
+    }
+
+    return true;
+}
+
 document.addEventListener('keyup', (e) => {
+    let moved = false;
     if (e.code == "ArrowLeft") {
         slideLeft();
-        setTwo();
-    }
-    else if (e.code == "ArrowRight") {
+        moved = true;
+    } else if (e.code == "ArrowRight") {
         slideRight();
-        setTwo();
-    }
-    else if (e.code == "ArrowUp") {
+        moved = true;
+    } else if (e.code == "ArrowUp") {
         slideUp();
-        setTwo();
-
-    }
-    else if (e.code == "ArrowDown") {
+        moved = true;
+    } else if (e.code == "ArrowDown") {
         slideDown();
-        setTwo();
+        moved = true;
     }
-    document.getElementById("score").innerText = score;
-})
+
+    if (moved) {
+        setTwo();
+        document.getElementById("score").innerText = score;
+        if (checkGameOver()) {
+            alert("Game Over! Your score is " + score);
+        }
+    }
+});
+
 
 function filterZero(row){
     return row.filter(num => num != 0); //create new array of all nums != 0
